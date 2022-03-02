@@ -12,11 +12,14 @@ const firebaseConfig = {
     measurementId: "G-LNVQQEP81J"
   };
 
-  //initialize firebase
-  firebase.initializeApp(firebaseConfig)
+//initialize firebase
+firebase.initializeApp(firebaseConfig)
   
-  // initialize services
+// initialize services
 const projectFirestore = firebase.firestore()
 const projectAuth = firebase.auth()
 
-export { projectFirestore, projectAuth }
+//timestamp
+const timestamp = firebase.firestore.Timestamp()
+
+export { projectFirestore, projectAuth, timestamp }
