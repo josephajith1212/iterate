@@ -1,12 +1,16 @@
 import {NavLink} from "react-router-dom"
+import {useAuthContext} from "../hooks/useAuthContext"
 import "./Sidebar.css"
+import Thumbnail from "./Thumbnail"
 
 export default function Sidebar() {
+    const {user} = useAuthContext();
     return (
         <div className="sidebar">
             <div className="sidebar-content">
                 <div className="user">
-                    <p>Hey user</p>
+                    <Thumbnail src={user.photoURL}/>
+                    <p>Hey {user.displayName}</p>
                 </div>
                 <nav className="links">
                     <ul>

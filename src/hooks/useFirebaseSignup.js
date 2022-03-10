@@ -23,6 +23,11 @@ export const useFirebaseSignup = () => {
             const thumbnailURL = await uploadedThumbnail.ref.getDownloadURL();
 
             await res.user.updateProfile({displayName, photoURL: thumbnailURL});
+            await myFirestore.collection("users").doc(res.user.uid).set({
+                online: true,
+                displayName,
+                photoURL: thumbnailURL
+            })
             //dispatch login action
             dispatch({type: "LOGIN", payload: res.user});
 
