@@ -1,16 +1,17 @@
 import {BrowserRouter, Switch, Route, Redirect} from 'react-router-dom'
 import './App.css';
+import {useAuthContext} from './hooks/useAuthContext';
 import Navbar from './components/Navbar';
 import Sidebar from './components/Sidebar';
-import {useAuthContext} from './hooks/useAuthContext';
 import Create from './pages/create/Create';
 import Dashboard from './pages/dashboard/Dashboard';
 import Login from './pages/login/Login'
 import Project from './pages/project/Project';
 import Signup from './pages/signup/signup';
+import OnlineUsers from './components/OnlineUsers'
 
 function App() {
-  const {user, authReady} = useAuthContext();
+  const {authReady, user} = useAuthContext();
   return (
     <div className='App'>
       {authReady && (
@@ -41,6 +42,7 @@ function App() {
               </Route>
             </Switch>
           </div>
+          {user && <OnlineUsers />}
         </BrowserRouter>
       )}
     </div>

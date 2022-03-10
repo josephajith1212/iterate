@@ -1,5 +1,5 @@
 import {useState, useEffect} from "react"
-import {myFirebaseAuth} from "../firebase/config";
+import {myFirebaseAuth, myFirestore} from "../firebase/config";
 import {useAuthContext} from "./useAuthContext";
 
 export const useLogout = () => {
@@ -12,6 +12,8 @@ export const useLogout = () => {
         setError(null);
         setIsPending(true);
         try {
+            const { uid } = myFirebaseAuth.currentUser
+            await myFirestore.collection('users').doc(uid).update({ online: false })
             await myFirebaseAuth.signOut();
             dispatch({type: "LOGOUT"})
             if (!isCancelled) {
