@@ -1,14 +1,15 @@
-.messages_container {
-    position: relative;
-    width: 100%;
-  }
-  .messages_user {
-    padding: 10px;
-    text-align: center;
-    border-bottom: 2px solid var(--primary-color);
-  }
-  .no_conv {
-    font-size: 20px;
-    color: var(--heading-color);
-    text-align: center;
-  }
+.chat {
+  position: relative;
+  height:60%;
+  width: 100%;
+}
+.chat-user {
+  padding: 10px;
+  text-align: center;
+  border-bottom: 2px solid var(--primary-color);
+}
+.chat .no-conv {
+  font-size: 20px;
+  color: var(--highlight-color);
+  text-align: center;
+}

@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
-
+import { myFirestore } from "../../firebase/config";
+import {useAuthContext} from "../../hooks/useAuthContext";
+import  MessageForm from '../../components/MessageForm'
 
 // styles
 import './Chat.css'
@@ -13,18 +15,38 @@ export default function Chat(props) {
     id : ""
   });
   const location = useLocation();
+  const [text, setText] = useState("");
+  const {user} = useAuthContext();
 
   useEffect(() => {
-    console.log(location.pathname); // result: '/secondpage'
-    console.log(location.state.selectUser); // result: 'some_value'
     setSelectUser(location.state.selectUser);
  }, [location]);
 
+ const handleSubmit = async (e) => {
+    e.preventDefault();
+    const userFromId = user.uid;
+    const userToId = selectUser.id;
+    const id = userFromId > userToId ? `${userFromId + userToId}` : `${userToId + userFromId}`;
+    
+    await myFirestore.collection("messages").doc(id).collection("chats").add({
+      text,
+      from : userFromId,
+      to : userToId,
+      createdAt : new Date()
+    })
+    setText("");
+ }
   return (
-    <div className="messages_container">
-      {selectUser && <div className='messages_user'>
-        <h3>{selectUser.displayName}</h3></div>}
-      {!selectUser && <div className="no_conv"><h3>Select a user to start conversation</h3></div>}
+    <div className="chat">
+      {selectUser ? (
+        <>
+          <div className='chat-user'>
+          <h3>{selectUser.displayName}</h3></div>
+          <MessageForm handleSubmit={handleSubmit} text={text} setText={setText}/>
+        </>
+      ) : (
+        <div className='no-conv'><h3>Select a user to start conversation</h3></div>
+      )}
     </div>
   )
 }
