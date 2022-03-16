@@ -1,3 +1,4 @@
+import { useCollection } from '../../hooks/useCollection'
 import "./Dashboard.css"
 
 export default function Dashboard() {
