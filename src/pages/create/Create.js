@@ -6,7 +6,7 @@ import {useAuthContext} from '../../hooks/useAuthContext'
 import {useFirestore} from '../../hooks/useFirestore'
 
 import "./Create.css"
-import {useHistory} from 'react-router-dom'
+import {useHistory} from 'react-router'
 
 const categories = [
   { value: 'development', label: 'Development' },
@@ -49,7 +49,6 @@ export default function Create() {
       photoURL: user.photoURL,
       id: user.uid,
     }
-  
     const assignedUsersList = assignedUsers.map((user) => {
       return{
         displayName: user.value.displayName,
@@ -57,12 +56,12 @@ export default function Create() {
         id: user.value.id,
       }
     })
-  
+    console.log( new Date(dueDate))
     const project = {
       name,
       details,
       category: category.value,
-      dueDate: timestamp.fromDate(new Date(dueDate)),
+      dueDate: timestamp.fromDate(new Date()),
       assignedUsersList, 
       createdBy,
       comments: []
