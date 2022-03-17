@@ -4,7 +4,6 @@ import Thumbnail from './Thumbnail'
 import './ProjectList.css'
 
 export default function ProjectList({ projects }) {
-  console.log(projects)
 
   return (
     <div className="project-list">
