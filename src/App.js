@@ -7,6 +7,7 @@ import Create from './pages/create/Create';
 import Dashboard from './pages/dashboard/Dashboard';
 import Login from './pages/login/Login'
 import Project from './pages/project/Project';
+import Chat from './pages/chat/Chat';
 import Signup from './pages/signup/signup';
 import OnlineUsers from './components/OnlineUsers'
 
@@ -31,6 +32,10 @@ function App() {
               <Route path="/project">
                 {!user && <Redirect to="/login" />}
                 {user && <Project />}
+              </Route>
+              <Route path="/chat">
+                {!user && <Redirect to="/login" />}
+                {user && <Chat />}
               </Route>
               <Route path="/login">
                 {user && <Redirect to="/" />}
