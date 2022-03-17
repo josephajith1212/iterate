@@ -20,7 +20,6 @@ export default function Chat() {
   const [msg, setMsg] = useState("");
   const [msgs, setMsgs] = useState([]);
   const userFromId = user.uid;
-  const scrollRef = useRef();
 
   useEffect(() => {
     setSelectUser(location.state.selectUser);
@@ -34,9 +33,8 @@ export default function Chat() {
       });
       console.log(texts);
       setMsgs(texts);
-      scrollRef.current?.scrollIntoView({ behavior: "smooth" });
     }) 
-  }, [location, userFromId, msgs]);
+  }, [location, userFromId]);
 
   console.log("state msgs" + msgs);
   const handleSubmit = async (e) => {
@@ -65,7 +63,7 @@ export default function Chat() {
           </div>
           <div>
             {msgs.length? msgs.map((msg, index) => (
-              <div className={msg.fromId === user.uid ? "own" : ""} ref={scrollRef}>
+              <div className={msg.fromId === user.uid ? "own" : ""} key={index}>
                 <div className="chat-user">
                     <Thumbnail src={msg.fromPhotoURL} />
                     {msg.fromName}
