@@ -61,7 +61,7 @@ export default function Chat() {
           <div className='chat-title'>
             <h3>chat with {selectUser.displayName}</h3>
           </div>
-          <div>
+          <div className='chat-content'>
             {msgs.length? msgs.map((msg, index) => (
               <div className={msg.fromId === user.uid ? "own" : ""} key={index}>
                 <div className="chat-user">
@@ -75,7 +75,7 @@ export default function Chat() {
             )) : null
             }
           </div>
-   
+
           <form className="add-message" onSubmit={handleSubmit}>
             <div>
               <input type="text" placeholder="Enter message" required value={msg} onChange={(e)=> setMsg(e.target.value)}/>
