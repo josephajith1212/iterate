@@ -1,9 +1,9 @@
 .chat {
   position: relative;
-  height:60%;
+  height: 70%;
   width: 100%;
 }
-.chat-user {
+.chat-title {
   padding: 10px;
   text-align: center;
   border-bottom: 2px solid var(--primary-color);
@@ -12,4 +12,36 @@
   font-size: 20px;
   color: var(--highlight-color);
   text-align: center;
+}
+.add-message {
+  position: absolute;
+  bottom: 0;
+  left: 20%;
+  width: 100%;
+  height: 30px;
+  display: flex;
+  align-items: center;
+}
+.add-message input {
+  width: 40vw;
+  margin: 0px 10px 10px;
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  border: none;
+}
+
+.own {
+  text-align: right;
+}
+.chat-date{
+  color: var(--text-color);
+  font-size: 0.9em;
+  margin: 4px 10px;
+}
+.me {
+  color:blue;
+}
+.friend {
+  color: --text-color;
 }
