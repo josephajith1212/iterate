@@ -1,0 +1,73 @@
+.create-form {
+    max-width: 600px;
+}
+
+.task-list {
+    margin-top: 40px;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    grid-gap: 20px;
+  }
+  .task-list a {
+    background-color: #fff;
+    padding: 16px;
+    border-radius: 6px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+    text-decoration: none;
+    color: inherit;
+  }
+  .task-list h4 {
+    font-size: 0.9em;
+    color: var(--heading-color);
+  }
+  .task-list p {
+    color: var(--text-color);
+    font-size: 0.9em;
+  }
+  .task-list .assigned-to {
+    margin-top: 20px;
+    padding-top: 10px;
+    border-top: 1px solid #eee;
+  }
+  .task-list ul {
+    margin: 10px 0;
+    display: flex;
+  }
+  .task-list li {
+    margin-right: 10px;
+  }
+  .task-list .thumbnail {
+    width: 30px;
+    height: 30px;
+  }
+
+  .task-detail {
+    background-color: #fff;
+    padding: 30px;
+    border-radius: 4px;
+  }
+  .task-detail .due-date {
+    margin: 10px 0;
+    font-size: 0.9em;
+    color: var(--title-color);
+  }
+  .task-detail .description {
+    margin: 30px 0;
+    color: var(--text-color);
+    line-height: 1.8em;
+    font-size: 0.9em;
+  }
+  .task-detail h4 {
+    color: var(--text-color);
+    font-size: 0.9em;
+  }
+  .task-detail .assigned-users {
+    display: flex;
+    margin-top: 20px;
+  }
+  .task-detail .assigned-users .thumbnail {
+    margin-right: 10px;
+  }
+  .task-detail + .btn {
+    margin-top: 20px;
+  }

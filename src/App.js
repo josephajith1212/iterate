@@ -10,6 +10,9 @@ import Project from './pages/project/Project';
 import Chat from './pages/chat/Chat';
 import Signup from './pages/signup/signup';
 import OnlineUsers from './components/OnlineUsers'
+import TaskCreate from './pages/task/TaskCreate';
+import TaskList from './pages/task/TaskList';
+import TaskDetail from './pages/task/TaskDetail';
 
 function App() {
   const {authReady, user} = useAuthContext();
@@ -36,6 +39,18 @@ function App() {
               <Route path="/chat">
                 {!user && <Redirect to="/login" />}
                 {user && <Chat />}
+              </Route>
+              <Route path="/taskCreate">
+                {!user && <Redirect to="/login" />}
+                {user && <TaskCreate />}
+              </Route>
+              <Route path="/taskList">
+                {!user && <Redirect to="/login" />}
+                {user && <TaskList />}
+              </Route>
+              <Route path="/taskDetail/:id">
+                {!user && <Redirect to="/login" />}
+                {user && <TaskDetail />}
               </Route>
               <Route path="/login">
                 {user && <Redirect to="/" />}
