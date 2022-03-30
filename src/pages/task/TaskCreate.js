@@ -1,5 +1,5 @@
-import React, {useEffect, useImperativeHandle, useState} from 'react'
-import { useHistory, useLocation, useParams } from 'react-router-dom'
+import React, {useEffect, useState} from 'react'
+import { useHistory, useLocation } from 'react-router-dom'
 import Select from 'react-select'
 import { timestamp } from '../../firebase/config'
 import { useAuthContext } from '../../hooks/useAuthContext'
