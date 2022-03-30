@@ -4,6 +4,10 @@
     align-items: start;
     grid-gap: 60px;
   }
+
+  .project-details .button-container{
+    grid-column: 1 / span 2;
+  }
   
   .project-summary {
     background-color: #fff;

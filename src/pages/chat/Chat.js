@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from 'react'
+import React, { useEffect, useState } from 'react'
 import { useLocation } from 'react-router-dom'
 import { myFirestore, timestamp } from '../../firebase/config'
 import {useAuthContext} from "../../hooks/useAuthContext";
