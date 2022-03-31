@@ -1,8 +1,11 @@
 import ProjectList from '../../components/ProjectList'
+import {useAuthContext} from '../../hooks/useAuthContext'
 import { useCollection } from '../../hooks/useCollection'
 import './Dashboard.css'
 export default function Dashboard() {
-  const { documents, error } = useCollection('projects')
+  const {user} = useAuthContext();
+  // const { documents, error } = useCollection('projects', ["createdBy.id", "==", user.uid])
+  const { documents, error } = useCollection('projects', ["assignedUsersIdList", "array-contains", user.uid])
 
   return (
     <div>

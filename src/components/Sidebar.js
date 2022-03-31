@@ -19,11 +19,11 @@ export default function Sidebar() {
                                 <span>Dashboard</span>
                             </NavLink>
                         </li>
-                        <li>
+                        {/* <li>
                             <NavLink to="/project">
                                 <span>Projects</span>
                             </NavLink>
-                        </li>
+                        </li> */}
                         <li>
                             <NavLink to="/create">
                                 <span>New Project</span>
