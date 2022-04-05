@@ -21,12 +21,11 @@ export default function Create() {
   const {documents} = useCollection('users');
   const [users, setUsers] = useState([]);
   const {user} = useAuthContext();
-
   const [name, setName] = useState('');
   const [details, setDetails] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [category, setCategory] = useState('');
-  const [assignedUsers, setAssignedUsers] = useState([]);
+  const [assignedUsers, setAssignedUsers] = useState([user]);
   const [formError, setFormError] = useState(null);
   
   useEffect(() => {
@@ -42,7 +41,7 @@ export default function Create() {
     e.preventDefault();
     setFormError(null);
     if (!category) setFormError("Please select the project category");
-    if (assignedUsers.length < 1) setFormError("PLease assign the project to at least 1 user");
+    if (assignedUsers.length < 1) setFormError("Please assign the project to at least 1 user");
     
     const createdBy = {
       displayName: user.displayName,
@@ -56,13 +55,18 @@ export default function Create() {
         id: user.value.id,
       }
     })
-    console.log( new Date(dueDate))
+
+    let assignedUsersIdList = assignedUsers.map((user) => {
+      return user.value.id
+    })
+
     const project = {
       name,
       details,
       category: category.value,
       dueDate: timestamp.fromDate(new Date()),
-      assignedUsersList, 
+      assignedUsersList,
+      assignedUsersIdList,
       createdBy,
       comments: []
     }
