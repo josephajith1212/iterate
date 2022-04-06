@@ -25,7 +25,7 @@ export default function Create() {
   const [details, setDetails] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [category, setCategory] = useState('');
-  const [assignedUsers, setAssignedUsers] = useState([user]);
+  const [assignedUsers, setAssignedUsers] = useState();
   const [formError, setFormError] = useState(null);
   
   useEffect(() => {
@@ -42,7 +42,6 @@ export default function Create() {
     setFormError(null);
     if (!category) setFormError("Please select the project category");
     if (assignedUsers.length < 1) setFormError("Please assign the project to at least 1 user");
-    
     const createdBy = {
       displayName: user.displayName,
       photoURL: user.photoURL,
@@ -70,9 +69,13 @@ export default function Create() {
       createdBy,
       comments: []
     }
-
+    // setAssignedUsers( (prevState) => [...prevState, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
+    // prevState => console.log([...prevState, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
+    // console.log([...assignedUsers, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
+    setAssignedUsers([...assignedUsers, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
     await addDocument(project);
     if(!response.error) history.push('/');
+    
   }
 
 
@@ -116,7 +119,10 @@ export default function Create() {
         <label>
           <span>Assign to:</span>
           <Select
-            onChange={(option) => setAssignedUsers(option)}
+            onChange={(option) => {
+              setAssignedUsers(option)
+            }}
+            // options={users.filter(each => each.value.id !== user.uid)}
             options={users}
             isMulti
           />
