@@ -9,7 +9,7 @@ export default function Navbar() {
     return (
         <div className="navbar">
             <ul>
-                <li className="logo">
+                <li className="logo tour-logo">
                     <Link to="/">
                         <p><span>/</span>PlanIT<span>/</span></p>
                     </Link>

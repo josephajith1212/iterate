@@ -1,4 +1,4 @@
-import { useEffect, useState } from 'react'
+import {useEffect, useState} from 'react'
 import Select from 'react-select'
 import {timestamp} from '../../firebase/config'
 import {useCollection} from '../../hooks/useCollection'
@@ -9,10 +9,10 @@ import "./Create.css"
 import {useHistory} from 'react-router'
 
 const categories = [
-  { value: 'development', label: 'Development' },
-  { value: 'design', label: 'Design' },
-  { value: 'sales', label: 'Sales' },
-  { value: 'marketing', label: 'Marketing' },
+  {value: 'development', label: 'Development'},
+  {value: 'design', label: 'Design'},
+  {value: 'sales', label: 'Sales'},
+  {value: 'marketing', label: 'Marketing'},
 ]
 
 export default function Create() {
@@ -27,9 +27,9 @@ export default function Create() {
   const [category, setCategory] = useState('');
   const [assignedUsers, setAssignedUsers] = useState();
   const [formError, setFormError] = useState(null);
-  
+
   useEffect(() => {
-    if(documents){
+    if (documents) {
       const options = documents.map(user => {
         return {value: user, label: user.displayName};
       });
@@ -48,7 +48,7 @@ export default function Create() {
       id: user.uid,
     }
     const assignedUsersList = assignedUsers.map((user) => {
-      return{
+      return {
         displayName: user.value.displayName,
         photoURL: user.value.photoURL,
         id: user.value.id,
@@ -72,12 +72,11 @@ export default function Create() {
     // setAssignedUsers( (prevState) => [...prevState, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
     // prevState => console.log([...prevState, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
     // console.log([...assignedUsers, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
-    setAssignedUsers([...assignedUsers, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
+    setAssignedUsers([...assignedUsers, {value: {displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
     await addDocument(project);
-    if(!response.error) history.push('/');
-    
-  }
+    if (!response.error) history.push('/');
 
+  }
 
   return (
     <div className="create-form">
@@ -105,10 +104,17 @@ export default function Create() {
           <input
             required
             type="date"
-            onChange={(e) => setDueDate(e.target.value)}
+            onChange={(e) => {
+              setDueDate(e.target.value)
+              console.log(dueDate)
+            }}
             value={dueDate}
           />
         </label>
+        {dueDate && console.log(dueDate)}
+        <div class="slidecontainer">
+          <input type="range" min="1" max="100" value="50" class="slider" id="myRange"/>
+        </div>
         <label>
           <span>Project category:</span>
           <Select
