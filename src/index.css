@@ -5,8 +5,8 @@
 :root {
   --heading-color: #444;
   --text-color: #999;
-  --primary-color: #8d2246;
-  /* --primary-color: #228d7f; */
+  /* --primary-color: #8d2246; */
+  --primary-color: #228d7f;
   --highlight-color: #d13267;
   --bg-color: #f4f4f4;
 }
