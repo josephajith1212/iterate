@@ -4,7 +4,7 @@ import JoyRide, { ACTIONS, EVENTS, STATUS } from "react-joyride";
 const TOUR_STEPS = [
   {
     target: ".tour-logo",
-    content:"Hello there ! Welcome To PlanIt",
+    content:"\u2728 Hello there ! Welcome To PlanIt \u2728 We are super excited to see you here We know you are new to managing projects and there are tons to learn about this,but dont worry we are here to sort that out for you If you just want to work without any interference,just ignore me now Else let us guide you on what you can do with PlanIT Click here for a guided tour",
     disableBeacon: true,
   },
   {
@@ -88,7 +88,7 @@ const Tour = () => {
   return (
     <>
       <button className="btn btn-primary" onClick={startTour}>
-        Start Tour
+        PlanIT Wizard 🧙
       </button>
 
       <JoyRide

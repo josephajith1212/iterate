@@ -9,7 +9,7 @@ export default function Dashboard() {
 
   return (
     <div>
-      <h2 className="page-title">Dashboard</h2>
+      <h2 className="page-title">Project Dashboard</h2>
       {error && <p className="error">{error}</p>}
       {documents && <ProjectList projects={documents}/>}
     </div>

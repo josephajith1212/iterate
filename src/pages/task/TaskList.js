@@ -22,15 +22,16 @@ export default function TaskList() {
 
     return (
         <div>
-            <button className="btn" onClick={handleCreate}>New Task</button> <br/>
-            <h2 className="page-title">TaskList for Project '{projectName}'</h2>
+            <button className="btn" onClick={handleCreate}>New Task</button> <br/><br></br>
+            <h2 className="page-title">Task Dashboard</h2>
             {error && <p className="error">{error}</p>}
             {documents &&
                 (<div className="task-list">
-                    {documents.length === 0 && <p>No tasks for this project yet!</p>}
+                    {documents.length === 0 && <p>No Tasks For This Project Yet!Lets Create One</p>}
                     {documents.map(task => (
                         <Link to={`/taskDetail/${task.id}`} key={task.id}>
                             <h4>{task.name}</h4>
+                            <p>{task.category.label} Task</p>
                             <p>Due by {task.dueDate.toDate().toDateString()}</p>
                             <div className="assigned-to">
                                 <p><strong>Assigned to:</strong></p>

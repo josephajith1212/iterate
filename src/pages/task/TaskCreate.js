@@ -24,7 +24,14 @@ export default function TaskCreate() {
     const [description, setDescription] = useState('')
     const [dueDate, setDueDate] = useState('')
     const [assignedUsers, setAssignedUsers] = useState([])
+    const [category, setCategory] = useState('')
     const [formError, setFormError] = useState(null)
+
+    const categories = [
+      { value: 'development', label: 'Development' },
+      { value: 'design', label: 'Design' },
+      { value: 'sales', label: 'Testing' },
+    ]
 
      // create user values for react-select
     useEffect(() => {
@@ -40,6 +47,7 @@ export default function TaskCreate() {
       e.preventDefault()
       setFormError(null)
 
+      if (!category) setFormError("Please select the project category");
       if(assignedUsers.length < 1){
           setFormError('Please assign the task to at least one user')
           return
@@ -62,6 +70,7 @@ export default function TaskCreate() {
         projectName,
         name,
         description,
+        category,
         dueDate: timestamp.fromDate(new Date(dueDate)),
         assignedUsersList, 
         createdBy
@@ -100,7 +109,17 @@ export default function TaskCreate() {
             ></textarea>
           </label>
           <label>
-            <span>Set due date:</span>
+          <span>Task Type:</span>
+          <Select
+            onChange={(option) => {
+              setCategory(option)
+              console.log(category)
+            }}
+            options={categories}
+          />
+        </label>
+          <label>
+            <span>Set Due Date:</span>
             <input
               required 
               type="date" 
@@ -109,7 +128,7 @@ export default function TaskCreate() {
             />
           </label>
           <label>
-            <span>Assign to:</span>
+            <span>Assignee:</span>
             <Select
                 onChange={(option) => setAssignedUsers(option)}
                 options={users}

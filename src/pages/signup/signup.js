@@ -39,7 +39,7 @@ export default function Signup() {
     }
     return (
         <form onSubmit={handleSubmit} className='signupSignin-form'>
-            <h2>sign up</h2>
+            <h2>Sign Up</h2>
             <label>
                 <span>Email:</span>
                 <input
@@ -59,7 +59,7 @@ export default function Signup() {
                 />
             </label>
             <label>
-                <span>Display name:</span>
+                <span>Display Name:</span>
                 <input
                     required
                     type='text'
@@ -68,7 +68,7 @@ export default function Signup() {
                 />
             </label>
             <label>
-                <span>Profile thumbnail:</span>
+                <span>Profile Thumbnail:</span>
                 <input required type='file' onChange={handleFileSubmit} />
                 {thumbnailError && <div className="error">{thumbnailError}</div>}
             </label>

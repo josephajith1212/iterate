@@ -17,6 +17,11 @@
     align-items: center;
     margin-right: auto;
   }
+
+  .img{
+    display: grid;
+    grid-template-columns: 500%;
+  }
   .navbar a {
     color: #333;
     text-decoration: none;

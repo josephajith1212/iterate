@@ -8,12 +8,12 @@ import {useFirestore} from '../../hooks/useFirestore'
 import "./Create.css"
 import {useHistory} from 'react-router'
 
-const categories = [
-  {value: 'development', label: 'Development'},
-  {value: 'design', label: 'Design'},
-  {value: 'sales', label: 'Sales'},
-  {value: 'marketing', label: 'Marketing'},
-]
+// const categories = [
+//   {value: 'development', label: 'Development'},
+//   {value: 'design', label: 'Design'},
+//   {value: 'sales', label: 'Sales'},
+//   {value: 'marketing', label: 'Marketing'},
+// ]
 
 export default function Create() {
   const history = useHistory();
@@ -24,7 +24,6 @@ export default function Create() {
   const [name, setName] = useState('');
   const [details, setDetails] = useState('');
   const [dueDate, setDueDate] = useState('');
-  const [category, setCategory] = useState('');
   const [assignedUsers, setAssignedUsers] = useState();
   const [formError, setFormError] = useState(null);
 
@@ -40,7 +39,6 @@ export default function Create() {
   const handleSubmit = async (e) => {
     e.preventDefault();
     setFormError(null);
-    if (!category) setFormError("Please select the project category");
     if (assignedUsers.length < 1) setFormError("Please assign the project to at least 1 user");
     const createdBy = {
       displayName: user.displayName,
@@ -62,7 +60,6 @@ export default function Create() {
     const project = {
       name,
       details,
-      category: category.value,
       dueDate: timestamp.fromDate(new Date()),
       assignedUsersList,
       assignedUsersIdList,
@@ -80,15 +77,22 @@ export default function Create() {
 
   return (
     <div className="create-form">
-      <h2 className="page-title">Create a new Project</h2>
+      <h2 className="page-title">Create A New Project</h2>
       <form onSubmit={handleSubmit}>
         <label>
-          <span>Project name:</span>
+          <span>Project Name:</span>
           <input
             required
             type="text"
             onChange={(e) => setName(e.target.value)}
             value={name}
+          />
+        </label>
+        <label>
+          <span>Project Version:</span>
+          <input
+            required
+            type="text"
           />
         </label>
         <label>
@@ -100,7 +104,7 @@ export default function Create() {
           ></textarea>
         </label>
         <label>
-          <span>Set due date:</span>
+          <span>Project End Date</span>
           <input
             required
             type="date"
@@ -112,18 +116,8 @@ export default function Create() {
           />
         </label>
         {dueDate && console.log(dueDate)}
-        <div class="slidecontainer">
-          <input type="range" min="1" max="100" value="50" class="slider" id="myRange"/>
-        </div>
         <label>
-          <span>Project category:</span>
-          <Select
-            onChange={(option) => setCategory(option)}
-            options={categories}
-          />
-        </label>
-        <label>
-          <span>Assign to:</span>
+          <span>Assignee:</span>
           <Select
             onChange={(option) => {
               setAssignedUsers(option)

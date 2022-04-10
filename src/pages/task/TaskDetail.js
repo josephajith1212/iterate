@@ -18,10 +18,15 @@ export default function TaskDetail() {
     
     return (
         <div className="task-detail">
+            
+            <h2>Task Detail</h2>
             <h2 className="page-title">{document.name}</h2>
             <p>Created By - {document.createdBy.displayName}</p>
             <p className="due-date">
                 Task due by {document.dueDate.toDate().toDateString()}
+            </p>
+            <p className="category">
+               {document.category.label} Task
             </p>
             <p className="description">
                 {document.description}
