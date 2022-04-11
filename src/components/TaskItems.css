@@ -1,0 +1,36 @@
+.taskCard{
+    background-color: #fff;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 6px;
+    box-shadow: 3px 3px 5px rgba(0, 0, 0, 0.05);
+    color: inherit;
+    text-align: left;
+  }
+  .taskCard a {
+    text-decoration: none;
+  }
+    .taskCard h4 {
+      font-size: 0.9em;
+      color: var(--heading-color);
+    }
+    .taskCard p {
+      color: var(--text-color);
+      font-size: 0.9em;
+    }
+    .taskCard .assigned-to {
+      margin-top: 20px;
+      padding-top: 10px;
+      border-top: 1px solid #eee;
+    }
+    .taskCard ul {
+      margin: 10px 0;
+      display: flex;
+    }
+    .taskCard li {
+      margin-right: 10px;
+    }
+    .taskCard .thumbnail {
+      width: 30px;
+      height: 30px;
+    }
