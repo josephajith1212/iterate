@@ -113,3 +113,6 @@
     color: var(--text-color);
     font-size: 0.9em;
   }
+  .backBtn{
+    margin-bottom: 1em;
+  }
