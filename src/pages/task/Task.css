@@ -17,15 +17,15 @@
 }
 
 .task-list .column1{
-  background-color: var(--highlight-color);
+  background-color: #ED9FE3;
 }
 
 .task-list .column2{
-  background-color: yellow;
+  background-color: #F5F17A;
 }
 
 .task-list .column3{
-  background-color: lime;
+  background-color:  #67DF47;
 }
 
 .task-list .column-text{
