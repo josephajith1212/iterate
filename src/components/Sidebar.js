@@ -26,9 +26,9 @@ export default function Sidebar() {
                                 <span>Projects</span>
                             </NavLink>
                         </li> */}
-                        <li>
-                            <NavLink to="/create">
-                                <span>New Project</span>
+                        <li >
+                            <NavLink  to="/create">
+                                <span  >New Project</span>
                             </NavLink>
                         </li>
                     </ul>

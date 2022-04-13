@@ -10,7 +10,7 @@ const TOUR_STEPS = [
   {
     target: ".tour-cart",
     content:
-      "View the carts you add here",
+      "Now lets take the first step of creating a project !Click On New Project To Go To The Project Creation Page",
   },
   {
     target: ".tour-contact",

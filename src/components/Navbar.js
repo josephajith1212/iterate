@@ -2,7 +2,6 @@ import "./Navbar.css"
 import {Link} from "react-router-dom"
 import {useLogout} from "../hooks/useLogout"
 import {useAuthContext} from "../hooks/useAuthContext";
-import pl from "../assets/projectlogo.png"
 
 export default function Navbar() {
     const {logout, isPending, error} = useLogout();
@@ -13,7 +12,6 @@ export default function Navbar() {
                 <li className="logo tour-logo">
                     <Link to="/">
                         <p><span>/</span>PlanIT<span>/</span></p>
-                        <img src={pl} alt="Logo" />
                     </Link>
                 </li>
                 {!user && (

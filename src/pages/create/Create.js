@@ -82,6 +82,7 @@ export default function Create() {
         <label>
           <span>Project Name:</span>
           <input
+          classname="tour-contact"
             required
             type="text"
             onChange={(e) => setName(e.target.value)}
