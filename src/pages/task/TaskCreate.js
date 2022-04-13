@@ -64,7 +64,8 @@ export default function TaskCreate() {
         description,
         dueDate: timestamp.fromDate(new Date(dueDate)),
         assignedUsersList, 
-        createdBy
+        createdBy,
+        status: "new"
       }
       
       await addDocument(task)
@@ -73,7 +74,6 @@ export default function TaskCreate() {
           pathname: '/taskList',
           state: {projectId : projectId, projectName : projectName}
         })
-        //history.push('/')
       }
     }
   
