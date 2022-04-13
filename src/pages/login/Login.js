@@ -22,6 +22,7 @@ export default function Login() {
         <input
           required
           type='email'
+          data-testid = "emailInput"
           onChange={(e) => setEmail(e.target.value)}
           value={email}
         />

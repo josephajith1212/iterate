@@ -2,6 +2,7 @@ import React from 'react'
 import Thumbnail from "../../components/Thumbnail"
 import { useParams } from "react-router-dom"
 import { useDocument } from '../../hooks/useDocument'
+import TaskComments from './TaskComments'
 
 import './Task.css'
 
@@ -34,6 +35,8 @@ export default function TaskDetail() {
                     </div>
                 ))}
             </div>
+            <TaskComments task={document}/>
         </div>
     )
 }
+//
