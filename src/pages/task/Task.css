@@ -3,7 +3,12 @@
 }
 
 .taskList-title{
-  font-size: 1em;
+  font-size: 1.5em;
+  color: var(--heading-color);
+  margin: 15px;
+}
+.taskList-title span{
+  font-size: 1.5em;
   color: var(--heading-color);
   margin: 15px;
 }
@@ -35,6 +40,10 @@
   margin: 10px;
 }
   .task-detail {
+    display: grid;
+    grid-template-columns: 3fr 2fr;
+    align-items: start;
+    grid-gap: 60px;
     background-color: #fff;
     padding: 30px;
     border-radius: 4px;
@@ -64,43 +73,43 @@
   .task-detail + .btn {
     margin-top: 20px;
   }
-    /* task comments */
-    .task-comments label {
-      margin-bottom: 0px;
-    }
-    .task-comments textarea {
-      min-height: 40px;
-      font-size: 1.5em;
-    }
-    
-    /* comment list */
-    .task-comments h4 {
-      color: var(--heading-color);
-    }
-    .task-comments li {
-      padding: 16px;
-      border-radius: 4px;
-      border: 1px solid #f2f2f2;
-      margin-top: 20px;
-      box-shadow: 3px 3px 5px rgba(0,0,0,0.05);
-      background: #fff;
-    }
-    .comment-author {
-      display: flex;
-      align-items: center;
-      color: var(--title-color);
-    }
-    .comment-author .thumbnail {
-      width: 30px;
-      height: 30px;
-      margin-right: 10px;
-    }
-    .comment-date {
-      color: var(--text-color);
-      font-size: 0.9em;
-      margin: 4px 0 10px;
-    }
-    .comment-content {
-      color: var(--text-color);
-      font-size: 0.9em;
-    }
+  /* task comments */
+  .task-comments label {
+    margin-bottom: 0px;
+  }
+  .task-comments textarea {
+    min-height: 40px;
+    font-size: 1.5em;
+  }
+  
+  /* comment list */
+  .task-comments h4 {
+    color: var(--heading-color);
+  }
+  .task-comments li {
+    padding: 16px;
+    border-radius: 4px;
+    border: 1px solid #f2f2f2;
+    margin-top: 20px;
+    box-shadow: 3px 3px 5px rgba(0,0,0,0.05);
+    background: #fff;
+  }
+  .comment-author {
+    display: flex;
+    align-items: center;
+    color: var(--title-color);
+  }
+  .comment-author .thumbnail {
+    width: 30px;
+    height: 30px;
+    margin-right: 10px;
+  }
+  .comment-date {
+    color: var(--text-color);
+    font-size: 0.9em;
+    margin: 4px 0 10px;
+  }
+  .comment-content {
+    color: var(--text-color);
+    font-size: 0.9em;
+  }

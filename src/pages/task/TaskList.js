@@ -23,7 +23,7 @@ export default function TaskList() {
     return (
         <div>
             <button className="btn" onClick={handleCreate}>New Task</button> <br/>
-            <h2 className="taskList-title">TaskList for Project '{projectName}'</h2>
+            <h3 className="taskList-title">Tasks for Project <span>{projectName}</span></h3>
             {error && <p className="error">{error}</p>}
             {documents &&
                 (<div className="task-list">
