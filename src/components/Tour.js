@@ -1,7 +1,5 @@
-import React, {useReducer, useEffect, useState} from "react";
+import React, {useReducer, useEffect} from "react";
 import JoyRide, {ACTIONS, EVENTS, STATUS} from "react-joyride";
-import {useLocation} from 'react-router-dom'
-
 
 const TOUR_STEPS1 = [
     {
@@ -55,22 +53,7 @@ const reducer = (state = INITIAL_STATE, action) => {
 
 const Tour = () => {
     const [tourState, dispatch] = useReducer(reducer, INITIAL_STATE);
-    // if (useLocation().pathname === '/create') {
-    //     INITIAL_STATE.steps = [
-    //         {
-    //             target: ".step1",
-    //             content: "bla bla",
-    //             disableBeacon: true,
-    //         },
-    //         {
-    //             target: ".step2",
-    //             content: "222",
-    //         },
-    //     ];
-        
-    // }
 
-    console.log(useLocation())
     useEffect(() => {
         if (!localStorage.getItem("tour")) {
             dispatch({type: "START"});
