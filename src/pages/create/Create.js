@@ -83,7 +83,7 @@ export default function Create() {
     <div className="create-form">
       <h2 className="page-title">Create a new Project</h2>
       <form onSubmit={handleSubmit}>
-        <label>
+        <label className='CPstep1'>
           <span>Project name:</span>
           <input
             required
@@ -100,7 +100,7 @@ export default function Create() {
             value={details}
           ></textarea>
         </label>
-        <label>
+        <label className='CPstep2'>
           <span>Set due date:</span>
           <input
             required
@@ -116,7 +116,7 @@ export default function Create() {
             options={categories}
           />
         </label>
-        <label>
+        <label className='CPstep3'>
           <span>Assign to:</span>
           <Select
             onChange={(option) => {

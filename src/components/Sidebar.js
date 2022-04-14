@@ -2,6 +2,11 @@ import {NavLink} from "react-router-dom"
 import {useAuthContext} from "../hooks/useAuthContext"
 import "./Sidebar.css"
 import Thumbnail from "./Thumbnail"
+import Tour from './Tour';
+import {useLocation} from 'react-router-dom'
+import TourCreateProj from "./TourCreateProj";
+import TourTaskList from "./TourTaskList";
+
 
 export default function Sidebar() {
     const {user} = useAuthContext();
@@ -13,6 +18,9 @@ export default function Sidebar() {
                     <p>Hey {user.displayName}</p>
                 </div>
                 <nav className="links">
+                    {useLocation().pathname === '/' && <Tour/>}
+                    {useLocation().pathname === '/create' && <TourCreateProj/>}
+                    {useLocation().pathname === '/taskList' && <TourTaskList/>}
                     <ul>
                         <li>
                             <NavLink exact to="/">
@@ -24,7 +32,7 @@ export default function Sidebar() {
                                 <span>Projects</span>
                             </NavLink>
                         </li> */}
-                        <li>
+                        <li className="step3">
                             <NavLink to="/create">
                                 <span>New Project</span>
                             </NavLink>
