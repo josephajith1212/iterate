@@ -1,7 +1,7 @@
 .user-list {
-    width: 250px;
-    min-width: 250px;
-    padding: 30px;
+    width: 220px;
+    min-width: 220px;
+    padding: 20px;
     box-sizing: border-box;
     background: #fbfbfb;
     color: var(--heading-color);
@@ -12,15 +12,14 @@
     padding-bottom: 10px;
     border-bottom: 1px solid #eee;
     font-size: 1.2em;
+    text-align: center;
   }
   .user-list .user-list-item {
-    display: flex;
-    justify-content: flex-end;
-    align-items: center;
-    margin: 20px auto;
+    display: grid;
+    grid-template-columns: 1fr 2fr 2fr;
+    margin: 15px auto;
   }
   .user-list .thumbnail {
-    margin-left: 10px;
     width: 40px;
     height: 40px;
   }

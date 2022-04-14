@@ -20,7 +20,7 @@ export default function OnlineUsers() {
       {error && <div className="error">{error}</div>}
       {documents && documents.map(user => (
         <div key={user.id} className="user-list-item" onClick={() => selectUser(user)}>
-            {user.online && <span className='online-user'></span>}
+          <div>{user.online && <span className='online-user'></span>}</div>
           <Thumbnail src={user.photoURL} />
           <span>{user.displayName}</span>
         </div>
