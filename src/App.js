@@ -17,7 +17,7 @@ import TaskDetail from './pages/task/TaskDetail';
 function App() {
   const {authReady, user} = useAuthContext();
   return (
-    <div className='App'>
+    <div className='App step0'>
       {authReady && (
         <BrowserRouter>
           {user && <Sidebar />}

@@ -5,7 +5,7 @@ import {useCollection} from '../../hooks/useCollection'
 import {useAuthContext} from '../../hooks/useAuthContext'
 import {useFirestore} from '../../hooks/useFirestore'
 
-import "./Create.css"
+import "./Update.css"
 import {useHistory} from 'react-router'
 
 const categories = [
@@ -17,7 +17,7 @@ const categories = [
 
 export default function Create() {
   const history = useHistory();
-  const {addDocument, response} = useFirestore('projects')
+  const {updateDocument, response} = useFirestore('projects')
   const {documents} = useCollection('users');
   const [users, setUsers] = useState([]);
   const {user} = useAuthContext();
@@ -69,21 +69,19 @@ export default function Create() {
       createdBy,
       comments: []
     }
-    // setAssignedUsers( (prevState) => [...prevState, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
-    // prevState => console.log([...prevState, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
-    // console.log([...assignedUsers, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
+ 
     setAssignedUsers([...assignedUsers, {value:{displayName: user.displayName, id: user.uid, online: true, photoURL: user.photoURL}, label: user.displayName}])
-    await addDocument(project);
+    await updateDocument(project);
     if(!response.error) history.push('/');
     
   }
 
 
   return (
-    <div className="create-form">
-      <h2 className="page-title">Create a new Project</h2>
+    <div className="update-form">
+      <h2 className="page-title">Update Project</h2>
       <form onSubmit={handleSubmit}>
-        <label className='CPstep1'>
+        <label>
           <span>Project name:</span>
           <input
             required
@@ -100,7 +98,7 @@ export default function Create() {
             value={details}
           ></textarea>
         </label>
-        <label className='CPstep2'>
+        <label>
           <span>Set due date:</span>
           <input
             required
@@ -116,7 +114,7 @@ export default function Create() {
             options={categories}
           />
         </label>
-        <label className='CPstep3'>
+        <label>
           <span>Assign to:</span>
           <Select
             onChange={(option) => {
@@ -127,7 +125,7 @@ export default function Create() {
             isMulti
           />
         </label>
-        <button className="btn">Create Project</button>
+        <button className="btn">Update Project</button>
         {formError && <p className='error'>{formError}</p>}
       </form>
     </div>

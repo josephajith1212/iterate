@@ -23,12 +23,12 @@ export default function TaskList() {
     return (
         <div>
             <button className="btn" onClick={handleCreate}>New Task</button> <br/>
-            <h2 className="taskList-title">TaskList for Project '{projectName}'</h2>
+            <h3 className="taskList-title">Tasks for Project <span>{projectName}</span></h3>
             {error && <p className="error">{error}</p>}
             {documents &&
-                (<div className="task-list">
+                (<div className="task-list TLstep1">
                     {documents.length === 0 && <p>No tasks for this project yet!</p>}
-                    <div className='column1'>
+                    <div className='column1 TLstep2'>
                         <p className='column-text'>To Do</p>
                         <TaskItems tasks={documents.filter(task => task.status === "new")} />
                     </div>

@@ -65,7 +65,8 @@ export default function TaskCreate() {
         dueDate: timestamp.fromDate(new Date(dueDate)),
         assignedUsersList, 
         createdBy,
-        status: "new"
+        status: "new",
+        comments: []
       }
       
       await addDocument(task)
