@@ -7,7 +7,13 @@ import {useFirestore} from '../../hooks/useFirestore'
 
 import "./Create.css"
 import {useHistory} from 'react-router'
-
+const itrOptions = [
+  { value: 2, label: "two" },
+  { value: 3, label: "three" },
+  { value: 4, label: "four" },
+  { value: 5, label: "five" },
+  { value: 6, label: "six" },
+]
 const categories = [
   { value: 'development', label: 'Development' },
   { value: 'design', label: 'Design' },
@@ -25,6 +31,7 @@ export default function Create() {
   const [details, setDetails] = useState('');
   const [dueDate, setDueDate] = useState('');
   const [category, setCategory] = useState('');
+  const [iterations, setIterations] = useState('');
   const [assignedUsers, setAssignedUsers] = useState();
   const [formError, setFormError] = useState(null);
   
@@ -64,6 +71,7 @@ export default function Create() {
       details,
       category: category.value,
       dueDate: timestamp.fromDate(new Date()),
+      iterations,
       assignedUsersList,
       assignedUsersIdList,
       createdBy,
@@ -107,6 +115,13 @@ export default function Create() {
             type="date"
             onChange={(e) => setDueDate(e.target.value)}
             value={dueDate}
+          />
+        </label>
+        <label>
+          <span>Number of iterations:</span>
+          <Select
+            onChange={(option) => setIterations(option)}
+            options={itrOptions}
           />
         </label>
         <label>

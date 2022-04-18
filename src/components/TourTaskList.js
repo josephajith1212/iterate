@@ -5,17 +5,18 @@ import JoyRide, {ACTIONS, EVENTS, STATUS} from "react-joyride";
 const TOUR_STEPS1 = [
     {
         target: ".TLstep1",
-        content: "bla",
+        content: "All your tasks will be displayed here.",
         disableBeacon: true,
     },
     {
         target: ".TLstep2",
-        content: "bla",
+        content: "New tasks for this project can be created from here.",
         disableBeacon: true,
     },
     {
         target: ".TLstep3",
-        content: "bla",
+        content: "Every new task starts here and can be moved to next ones when needed.",
+        disableBeacon: true,
     },
 ];
 

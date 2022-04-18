@@ -5,17 +5,17 @@ import JoyRide, {ACTIONS, EVENTS, STATUS} from "react-joyride";
 const TOUR_STEPS1 = [
     {
         target: ".CPstep1",
-        content: "bla",
+        content: "Hi, So you are ready to create a project, lets choose a project name which is meaningful as well as unique",
         disableBeacon: true,
     },
     {
         target: ".CPstep2",
-        content: "bla",
+        content: "Let us set a due date, ideally 3 to 6 months from now, but always try to keep in mind the number of story points as well as the minimum sprint duration",
         disableBeacon: true,
     },
     {
         target: ".CPstep3",
-        content: "bla",
+        content: "This is assigning all the team members to the project. Its a good idea to list out all the members you would want to assign this project to",
     },
 ];
 

@@ -4,6 +4,7 @@ import Select from 'react-select'
 import { timestamp } from '../../firebase/config'
 import { useAuthContext } from '../../hooks/useAuthContext'
 import { useCollection } from '../../hooks/useCollection'
+import {useDocument} from '../../hooks/useDocument'
 import { useFirestore } from '../../hooks/useFirestore'
 
 import "./Task.css"
@@ -29,7 +30,7 @@ export default function TaskCreate() {
      // create user values for react-select
     useEffect(() => {
         if(documents) {
-            const options = documents.map(user => {
+            let options = documents.map(user => {
                 return { value: user, label: user.displayName }
             })
             setUsers(options)
